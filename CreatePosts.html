@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Posts</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <script>
+        function checkSubmit(){
+            let uname = document.querySelector('#username').value;
+            let content = document.querySelector('#post').value;
+            if(uname.length === 0){
+                document.querySelector('#err').innerText = 'Please input a username';
+                return false;
+            }
+            else if(content.length === 0){
+                document.querySelector('#err').innerText = 'Please input a Post';
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+    <style>
+    body, html{
+        background-color: rgb(51, 50, 50);
+        font-family:sans-serif;
+        text-align:center;
+        margin-top: 10%;
+    }
+    p, label{
+        color: red;
+    }
+    input[type=submit] {
+        padding: 20px;
+        font-family: Helvetica, sans-serif;
+        background-color: bisque;
+    }
+    input[type=text]{
+        padding: 12px 20px;
+        box-sizing: border-box;
+        
+    }
+    #post{
+        width: 75%;
+    }
+    
+    </style>
+  </head>
+  
+  <body>
+      <form action="CreatePosts.php" onsubmit="return checkSubmit()" method = "post">
+        <label for="uid">Username:</label>
+        <input type="text" name="uid" id="uid">
+        <br>
+        <label for="post">Post:</label>
+        <input type="text" name="post" id="post">
+        <br>
+        <input type="submit" id="submitbtn">
+      </form>
+      <p id="err"></p>
+  </body>
+</html>

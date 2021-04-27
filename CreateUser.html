@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Team9Games</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <script>
+        function checkSubmit(){
+            // if(a_pos === -1 || !username.includes('.', a_pos)){
+            //     document.querySelector('#error').innerText = 'Username of form john@domain.com';
+            //     document.querySelector('#error').hidden = false;
+            //     return false;
+            // }
+            let uname = document.querySelector('#username').value;
+            if(uname.length === 0){
+                document.querySelector('p').innerText = 'Please input a username';
+                return false;
+            }
+        }
+    </script>
+    <style>
+    body, html{
+        background-color: rgb(51, 50, 50);
+        font-family:sans-serif;
+        text-align:center;
+        margin-top: 25%;
+        /* margin-bottom: auto; */
+    }
+    p{
+        color: red;
+    }
+    
+    </style>
+  </head>
+  
+  <body>
+      <form action="CreateUser.php" onsubmit="return checkSubmit()" method = "post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <input type="submit" id="submitbtn">
+      </form>
+      <p id="err"></p>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Posts</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script>
+        function checkSubmit(){
+            if(document.querySelector('#users').value !=null){
+                return true;
+            }
+            else{
+                document.querySelector('#err').innerText = 'No Users to choose/chosen.';
+                return false;
+            }
+
+        }
+    </script>
+    <style>
+    body, html{
+        background-color: rgb(51, 50, 50);
+        font-family:sans-serif;
+        text-align:center;
+        margin-top: 10%;
+    }
+    #submit{
+        padding: 20px;
+        font-family: Helvetica, sans-serif;
+        background-color: bisque;
+    }
+    select{
+        border-radius: 5px;
+        padding: 15px;
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color: #fff;
+    }
+    option{
+        border-radius: 2px;
+        padding: 5px;
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color: #fff;
+    }
+    label{
+        color: white;
+        font: Helvetica 20px;
+    }
+    
+    </style>
+  </head>
+  
+  <body>
+    
+    <form action="ViewUserPosts.php" method="post" onclick="checkSubmit()">
+        <label for="users">Select a user:</label>
+        <select name="users" id="users">
+            <?php
+                $mysqli = new mysqli("mysql.eecs.ku.edu", "neelpatel", "eis3Hou4", "neelpatel");
+                $query = 'SELECT * FROM Users';
+                if ($result = $mysqli->query($query)) {
+                    echo "";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value=\"{$row['user_id']}\"> {$row['user_id']}</option>";
+                    }
+                    echo "</body>";
+                }
+            ?>
+        </select>
+        <input type="submit" id="submit">
+
+    </form>
+    <p id="err"></p>
+  </body>
+</html>
