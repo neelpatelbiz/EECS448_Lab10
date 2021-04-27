@@ -9,7 +9,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }</style><body><p>Connect failed:  $mysqli->connect_error</p></body>";
             exit();
         }
@@ -22,7 +22,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }
             p {
                 color: green;
@@ -35,7 +35,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }</style><body><p>User Addition Unsuccessful! </p></body>";
         }
         $mysqli->close();

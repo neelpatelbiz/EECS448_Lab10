@@ -9,7 +9,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }
             p {
                 color: red;
@@ -25,7 +25,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }
             p {
                 color: green;
@@ -38,7 +38,7 @@
                 background-color: rgb(51, 50, 50);
                 font-family:sans-serif;
                 text-align:center;
-                margin-top: 25%;
+                margin-top: 10%;
             }
             p {
                 color: red;
