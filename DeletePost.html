@@ -7,7 +7,20 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script>
         function checkSubmit(){
-            return true;
+            let boxes = document.querySelectorAll('.toDelete');
+            if(boxes.length === 0){
+                document.querySelector('#err').innerText="No posts to select.";
+                return false;
+            }
+            else{
+                for(let i=0; i<boxes.length; i++){
+                    if(boxes[i].checked === true){
+                        return true;
+                    }
+                }
+                document.querySelector('#err').innerText="No posts selected.";
+                return false;
+            }
             
             //if(document.querySelectorAll('#postArr').isEmpty())  document.querySelector('#err').innerText = 'No Posts Chosen'; return false;
             //else return true;
@@ -35,13 +48,16 @@
         padding: 10px;
         border: 1px solid black;
     }
+    #err {
+        color: red;
+    }
     
     </style>
   </head>
   
   <body>
     
-    <form action="DeletePost.php" method="post" onclick="checkSubmit()">
+    <form action="DeletePost.php" method="post" onsubmit="return checkSubmit()">
         <table>
             <tr><td>Post</td><td>Author</td><td>Delete?</td></tr>
             <?php
@@ -53,7 +69,7 @@
             }
             if($result = $mysqli->query($query)){
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr> <td>{$row['content']}</td> <td>{$row['author_id']}</td><td><input name=\"postArr[]\" value=\"{$row['post_id']}\" type=\"checkbox\"></td></tr>";
+                    echo "<tr> <td>{$row['content']}</td> <td>{$row['author_id']}</td><td><input name=\"postArr[]\" value=\"{$row['post_id']}\" type=\"checkbox\" class=\"toDelete\"></td></tr>";
                 }
                 $result->free();
             }
